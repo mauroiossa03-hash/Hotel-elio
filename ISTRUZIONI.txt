@@ -1,0 +1,108 @@
+========================================================
+  SITO HOTEL ELIO — ISTRUZIONI PER LA PUBBLICAZIONE
+========================================================
+
+Questo sito è fatto di semplici file HTML/CSS/JS: non serve alcun
+server o database. Funziona ovunque. Qui trovi tutto per pubblicarlo.
+
+
+--------------------------------------------------------
+ CONTENUTO DELLA CARTELLA
+--------------------------------------------------------
+  index.html          → Home
+  hotel.html          → L'Hotel
+  camere.html         → Camere
+  ristorante.html     → Ristorante
+  pizzeria.html       → Pizzeria
+  eventi.html         → Eventi e Cerimonie
+  prezzi.html         → Prezzi e Menu
+  dove-siamo.html     → Dove Siamo (mappa)
+  contatti.html       → Contatti (con modulo)
+  style.css           → grafica di tutte le pagine
+  main.js             → menu, header e footer condivisi
+  images/             → tutte le foto ottimizzate
+  sitemap.xml         → mappa del sito per Google
+  robots.txt          → istruzioni per i motori di ricerca
+  .nojekyll           → file tecnico per GitHub Pages
+
+Per vedere il sito sul tuo computer: apri "index.html" col browser.
+
+
+--------------------------------------------------------
+ A) PUBBLICARE SU GITHUB PAGES (gratis)
+--------------------------------------------------------
+1. Vai su https://github.com e accedi (o crea un account).
+2. In alto a destra: "+" → "New repository".
+   - Repository name: hotel-elio  (o quello che preferisci)
+   - Public
+   - NON aggiungere README/gitignore
+   - "Create repository".
+3. Nella pagina del repo vuoto: "uploading an existing file".
+4. Trascina TUTTI i file di questa cartella (comprese la cartella
+   images e i file che iniziano col punto, come .nojekyll).
+   Poi "Commit changes".
+5. Vai su "Settings" (del repo) → "Pages" (menu a sinistra).
+   - Source: "Deploy from a branch"
+   - Branch: "main"  /  cartella "/ (root)"  → "Save".
+6. Attendi 1-2 minuti. In cima alla pagina Pages comparirà il link:
+   https://TUONOME.github.io/hotel-elio/
+   Il sito è online!
+
+
+--------------------------------------------------------
+ B) IN ALTERNATIVA: VERCEL o NETLIFY (gratis, con dominio comodo)
+--------------------------------------------------------
+- Vercel:  https://vercel.com → "Add New Project" → importa il repo
+  GitHub → Deploy. Fatto.
+- Netlify: https://app.netlify.com → trascina direttamente questa
+  cartella nella pagina "Sites". Online in pochi secondi.
+Entrambi permettono di collegare facilmente un dominio personale
+(es. www.hotelelio.com) nelle impostazioni del progetto.
+
+
+--------------------------------------------------------
+ C) FAR FUNZIONARE IL MODULO CONTATTI (importante!)
+--------------------------------------------------------
+Il modulo in "contatti.html" ora punta a un indirizzo di esempio.
+Per ricevere davvero le email (gratis, senza server):
+
+1. Vai su https://formspree.io e registrati (piano gratuito).
+2. Crea un nuovo form collegato all'email info@hotelelio.com.
+3. Formspree ti darà un indirizzo tipo:
+      https://formspree.io/f/xxxxxxx
+4. Apri "contatti.html", cerca questa riga:
+      <form action="https://formspree.io/f/TUO_CODICE" method="POST">
+   e sostituisci TUO_CODICE con il codice ricevuto (o incolla
+   l'indirizzo completo). Salva e ricarica su GitHub.
+Ora ogni richiesta arriverà direttamente nella casella email.
+
+
+--------------------------------------------------------
+ D) FARSI TROVARE SU GOOGLE
+--------------------------------------------------------
+1. GOOGLE SEARCH CONSOLE (per indicizzare il sito)
+   - Vai su https://search.google.com/search-console
+   - Aggiungi la proprietà col dominio o l'URL del sito.
+   - Invia la sitemap: incolla  sitemap.xml
+   In pochi giorni Google inizierà a mostrare il sito.
+
+2. GOOGLE BUSINESS PROFILE (la scheda con mappa, foto, recensioni)
+   - Vai su https://business.google.com
+   - Rivendica/crea la scheda "Albergo Ristorante Elio".
+   - Inserisci indirizzo, telefono, orari, foto e il link al sito.
+   Questa scheda è ciò che appare a destra su Google e sulle mappe:
+   è fondamentale per un hotel/ristorante.
+
+
+--------------------------------------------------------
+ NOTE
+--------------------------------------------------------
+- Per cambiare un testo: apri il file .html corrispondente e modifica
+  la frase. Header e piè di pagina si modificano una sola volta in
+  "main.js" e cambiano su tutte le pagine.
+- Per cambiare una foto: sostituisci il file dentro "images/"
+  mantenendo lo stesso nome.
+- I prezzi sono in "prezzi.html". L'indirizzo/telefono nel "main.js"
+  (piè di pagina) e nella pagina contatti/dove-siamo.
+
+Buona vendita!
