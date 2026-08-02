@@ -19,8 +19,10 @@ function buildHeader(){
   <header id="header" class="${solid?'solid':''}">
     <div class="wrap nav-inner">
       <a href="index.html" class="logo">
-        <span class="logo-mark"><span>E</span></span>
-        <span class="logo-txt"><strong>Elio</strong><span>Albergo · Ristorante</span></span>
+        <img src="images/logo.png" alt="Elio" class="logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="logo-fallback">
+          <span class="logo-txt"><strong>Elio</strong><span>Albergo · Ristorante</span></span>
+        </span>
       </a>
       <nav>
         <ul id="menu">
@@ -40,7 +42,7 @@ function buildFooter(){
     <div class="wrap">
       <div class="foot-grid">
         <div class="foot-col">
-          <div class="foot-logo"><span class="logo-mark"><span>E</span></span><strong style="font-family:var(--script);font-style:italic">Albergo Ristorante Elio</strong></div>
+          <div class="foot-logo"><img src="images/logo.png" alt="Elio" style="height:44px;filter:brightness(0) invert(1)" onerror="this.outerHTML='&lt;span class=\'logo-mark\'&gt;&lt;span&gt;E&lt;/span&gt;&lt;/span&gt;&lt;strong style=\'font-family:var(--script);font-style:italic;margin-left:10px\'&gt;Albergo Ristorante Elio&lt;/strong&gt;'"></div>
           <p>Ospitalità familiare a tre stelle nel cuore di Marigliano, in provincia di Napoli. Camere, ristorante pizzeria, giardino con piscina e sale per cerimonie.</p>
         </div>
         <div class="foot-col">
@@ -91,22 +93,29 @@ document.addEventListener('DOMContentLoaded', () => {
     menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
   }
 
-  // Slideshow automatico
-  const show = document.querySelector('.slideshow');
-  if(show){
+  // Slideshow automatico (con etichette dinamiche opzionali)
+  document.querySelectorAll('.slideshow').forEach(show => {
     const slides = show.querySelectorAll('.slide');
     const dots = show.querySelectorAll('.slideshow-dots button');
+    const captionEl = show.querySelector('.slideshow-caption h3');
+    const subEl = show.querySelector('.slideshow-caption p');
     let i = 0;
+    const setCaption = idx => {
+      if(captionEl && slides[idx].dataset.label) captionEl.textContent = slides[idx].dataset.label;
+      if(subEl && slides[idx].dataset.sub) subEl.textContent = slides[idx].dataset.sub;
+    };
     const go = n => {
       slides[i].classList.remove('active');
       if(dots[i]) dots[i].classList.remove('active');
       i = (n + slides.length) % slides.length;
       slides[i].classList.add('active');
       if(dots[i]) dots[i].classList.add('active');
+      setCaption(i);
     };
-    let timer = setInterval(() => go(i+1), 4000);
+    setCaption(0);
+    let timer = setInterval(() => go(i+1), 3500);
     dots.forEach((d, idx) => d.addEventListener('click', () => {
-      clearInterval(timer); go(idx); timer = setInterval(() => go(i+1), 4000);
+      clearInterval(timer); go(idx); timer = setInterval(() => go(i+1), 3500);
     }));
-  }
+  });
 });

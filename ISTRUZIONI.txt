@@ -105,3 +105,17 @@ Ora ogni richiesta arriverà direttamente nella casella email.
   (piè di pagina) e nella pagina contatti/dove-siamo.
 
 Buona vendita!
+
+
+--------------------------------------------------------
+ E) IL LOGO "ELIO"
+--------------------------------------------------------
+Il sito è predisposto per usare il logo vero dell'hotel.
+Appena hai la scritta "Elio" ritagliata pulita (meglio se
+PNG con sfondo trasparente), rinominala esattamente:
+      logo.png
+e mettila dentro la cartella "images/".
+Comparirà automaticamente in alto a sinistra su tutte le
+pagine e nel piè di pagina, adattandosi ai colori chiari e
+scuri. Se il file non c'è, il sito mostra "Elio" scritto in
+elegante corsivo come alternativa (già pronto).
