@@ -12,8 +12,7 @@ server o database. Funziona ovunque. Qui trovi tutto per pubblicarlo.
   index.html          → Home
   hotel.html          → L'Hotel
   camere.html         → Camere
-  ristorante.html     → Ristorante
-  pizzeria.html       → Pizzeria
+  ristorante.html     → Ristorante & Pizzeria
   eventi.html         → Eventi e Cerimonie
   prezzi.html         → Prezzi e Menu
   dove-siamo.html     → Dove Siamo (mappa)

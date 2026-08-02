@@ -3,8 +3,7 @@ const PAGES = [
   {href:'index.html',       label:'Home'},
   {href:'hotel.html',       label:"L'Hotel"},
   {href:'camere.html',      label:'Camere'},
-  {href:'ristorante.html',  label:'Ristorante'},
-  {href:'pizzeria.html',    label:'Pizzeria'},
+  {href:'ristorante.html',  label:'Ristorante & Pizzeria'},
   {href:'eventi.html',      label:'Eventi'},
   {href:'prezzi.html',      label:'Prezzi'},
   {href:'dove-siamo.html',  label:'Dove Siamo'},
@@ -20,7 +19,7 @@ function buildHeader(){
   <header id="header" class="${solid?'solid':''}">
     <div class="wrap nav-inner">
       <a href="index.html" class="logo">
-        <span class="logo-mark">E</span>
+        <span class="logo-mark"><span>E</span></span>
         <span class="logo-txt"><strong>Elio</strong><span>Albergo · Ristorante</span></span>
       </a>
       <nav>
@@ -41,7 +40,7 @@ function buildFooter(){
     <div class="wrap">
       <div class="foot-grid">
         <div class="foot-col">
-          <div class="foot-logo"><span class="logo-mark">E</span><strong>Albergo Ristorante Elio</strong></div>
+          <div class="foot-logo"><span class="logo-mark"><span>E</span></span><strong style="font-family:var(--script);font-style:italic">Albergo Ristorante Elio</strong></div>
           <p>Ospitalità familiare a tre stelle nel cuore di Marigliano, in provincia di Napoli. Camere, ristorante pizzeria, giardino con piscina e sale per cerimonie.</p>
         </div>
         <div class="foot-col">
@@ -49,8 +48,8 @@ function buildFooter(){
           <ul>
             <li><a href="hotel.html">L'Hotel</a></li>
             <li><a href="camere.html">Camere</a></li>
-            <li><a href="ristorante.html">Ristorante</a></li>
-            <li><a href="pizzeria.html">Pizzeria</a></li>
+            <li><a href="ristorante.html">Ristorante &amp; Pizzeria</a></li>
+            <li><a href="eventi.html">Eventi</a></li>
             <li><a href="prezzi.html">Prezzi</a></li>
             <li><a href="dove-siamo.html">Dove Siamo</a></li>
           </ul>
@@ -90,5 +89,24 @@ document.addEventListener('DOMContentLoaded', () => {
   if(burger && menu){
     burger.addEventListener('click', () => menu.classList.toggle('open'));
     menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+  }
+
+  // Slideshow automatico
+  const show = document.querySelector('.slideshow');
+  if(show){
+    const slides = show.querySelectorAll('.slide');
+    const dots = show.querySelectorAll('.slideshow-dots button');
+    let i = 0;
+    const go = n => {
+      slides[i].classList.remove('active');
+      if(dots[i]) dots[i].classList.remove('active');
+      i = (n + slides.length) % slides.length;
+      slides[i].classList.add('active');
+      if(dots[i]) dots[i].classList.add('active');
+    };
+    let timer = setInterval(() => go(i+1), 4000);
+    dots.forEach((d, idx) => d.addEventListener('click', () => {
+      clearInterval(timer); go(idx); timer = setInterval(() => go(i+1), 4000);
+    }));
   }
 });
